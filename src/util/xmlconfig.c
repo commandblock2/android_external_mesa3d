@@ -1173,6 +1173,11 @@ driInjectExecName(const char *exec)
    execname = exec;
 }
 
+#ifdef __ANDROID__
+#define SYSCONFDIR "/vendor/etc"
+#define DATADIR "/data/vendor"
+#endif /* __ANDROID__ */
+
 void
 driParseConfigFiles(driOptionCache *cache, const driOptionCache *info,
                     int screenNum, const char *driverName,
